@@ -6,7 +6,7 @@
 /*   By: gubourge <gubourge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 17:21:39 by gubourge          #+#    #+#             */
-/*   Updated: 2016/12/08 16:14:24 by gubourge         ###   ########.fr       */
+/*   Updated: 2017/04/02 18:02:33 by gubourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 int		env_find_opt(t_env *env_built, char **param, int *i, char ***env)
 {
 	if (!ft_strcmp(param[*i], "-i"))
+	{
+		ft_freetab(env_cp, ft_tablen(env_cp));
 		*env = NULL;
+	}
 	else if (!ft_strcmp(param[*i], "-u"))
 	{
 		if (!(env_u(env, env_built, &param[*i + 1], i)))
